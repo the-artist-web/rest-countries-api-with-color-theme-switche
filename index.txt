@@ -1,0 +1,15 @@
+Where in the world?
+
+dark mood
+
+placeholder: Search for a country...
+
+Filter by Region
+
+Africa
+America
+Asia
+Europe
+Oceania
+
+&copy; the artist web 2024

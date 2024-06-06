@@ -46,7 +46,7 @@ fetch("./assets/json/data.json")
         pushBoxsWorld.innerHTML += `
         <a href="display.html?search=${item.name}" class="box" data-box>
             <figure>
-                <img src="${item.flags.svg}" alt="${item.name}" loading="lazy" class="falg img-cover">
+                <img src="${item.flags.png}" alt="${item.name}" loading="lazy" class="falg img-cover">
             </figure>
 
             <div class="box-body">

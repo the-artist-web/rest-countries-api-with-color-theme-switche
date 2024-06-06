@@ -161,11 +161,20 @@ body {
 /**
  * btn border country
  */
+.btn-border {
+  background-color: var(--second-bg-color);
+  box-shadow: 0 0 3px black;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 8px 30px;
+  transition: .4s;
+}
 
-
-
-
-
+.btn-border:where(:hover, :focus-visible):not(:active) {
+  box-shadow: 0 0 0 transparent;
+  transition: .4s;
+}
 
 /**
  * btn mood
@@ -193,18 +202,25 @@ body {
 
 .moon.active { display: flex; }
 
-
-
-
-
 /**
  * btn back
  */
+.btn-back {
+  display: flex;
+  align-items: center;
+  padding: 8px 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px black;
+  background-color: var(--second-bg-color);
+  width: max-content;
+  gap: 10px;
+  transition: .4s;
+}
 
-
-
-
-
+.btn-back:where(:hover, :focus-visible):not(:active) {
+  box-shadow: 0 0 0 transparent;
+  transition: .4s;
+}
 
 /**
  * box
@@ -212,7 +228,13 @@ body {
 .box {
   background-color: var(--second-bg-color);
   border-radius: 10px;
+  transition: .4s;
   animation: top-box 0.3s linear alternate;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  transition: .4s;
 }
 
 @keyframes top-box {
@@ -317,6 +339,62 @@ body {
 .skeleton .skeleton-body .skeleton-list .text-2 { max-width: 50%; }
 
 .skeleton .skeleton-body .skeleton-list .text-3 { max-width: 85%; }
+
+/* home skeleton in display.html */
+.img-skeleton {
+  background-color: #9c9c9c;
+  height: 50vh;
+  width: 100%;
+  animation: skeleton 500ms linear infinite alternate;
+}
+
+.name-skeleton {
+  background-color: #9c9c9c;
+  border-radius: 100px;
+  height: 25px;
+  width: 200px;
+  animation: skeleton 500ms linear infinite alternate;
+}
+
+.text-skeleton {
+  background-color: #9c9c9c;
+  border-radius: 100px;
+  height: 15px;
+  width: 250px;
+  animation: skeleton 500ms linear infinite alternate;
+}
+
+.text-1 { width: 150px; }
+
+.text-2 { width: 170px; }
+
+.text-3 { width: 100px; }
+
+.text-4 { width: 200px; }
+
+.text-5 { width: 120px; }
+
+.text-6 { width: 180px; }
+
+.text-7 { width: 200px; }
+
+.text-8 { width: 160px; }
+
+.border-text-skeleton {
+  background-color: #9c9c9c;
+  border-radius: 100px;
+  height: 22px;
+  width: 150px;
+  animation: skeleton 500ms linear infinite alternate;
+}
+
+.btn-border-skeleton {
+  background-color: #9c9c9c;
+  border-radius: 6px;
+  height: 30px;
+  width: 100px;
+  animation: skeleton 500ms linear infinite alternate;
+}
 
 @keyframes skeleton {
   0% { opacity: 0.2; }
@@ -441,7 +519,7 @@ body {
 .selected .selected-list.active {
   opacity: 1;
   visibility: visible;
-  height: 186px;
+  height: 215px;
   transition: .4s;
 }
 
@@ -550,22 +628,82 @@ body {
   #HOME DETAIL
 \*----------------------------------------------------*/
 
+.home-detail {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 12px 30px;
+  gap: 30px;
+}
 
+.home-detail .home-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
+.home-detail .home-detail-content .name {
+  font-size: 2rem;
+  font-weight: bold;
+}
 
+.home-detail .home-detail-content .content-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 25px;
+}
 
+.home-detail .home-detail-content .content-list .content-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
+.home-detail .home-detail-content .content-list .content-item .text {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
+.home-detail .home-detail-content .content-list .content-item .text .span { color: #9c9c9c; }
+
+.home-detail .home-detail-content .border-countries {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.home-detail .home-detail-content .border-countries .border-text {
+  text-wrap: nowrap;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.home-detail .home-detail-content .border-countries .countries-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 /**
  * media home detail
  */
 
-/** fit size 768px */
-@media (min-width: 768px) {}
-
 /** fit size 992px */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+  .home-detail {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 111px;
+  }
+  .home-detail .home-detail-content { gap: 20px; }
 
-/** fit size 1200px */
-@media (min-width: 1200px) {}
+  .home-detail .home-detail-content .content-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .home-detail .home-detail-content .border-countries {
+    margin-top: 50px;
+    flex-direction: row;
+    gap: 15px;
+  }
+}
